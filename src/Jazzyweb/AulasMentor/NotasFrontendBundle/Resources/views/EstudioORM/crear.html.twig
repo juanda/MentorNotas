@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <h1>Prueba del ORM para crear objetos</h1>
+
+    <h2>Creación de notas</h2>
+
+    <h3>Se han creado y persistido en base de datos la notas siguientes:</h3>
+
+    <ul>
+        {% for nota in notas %}
+            <li>{{nota.titulo}}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

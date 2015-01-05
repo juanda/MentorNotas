@@ -68,3 +68,19 @@ jamn_tarifas:
 jamn_contratar:
      pattern:  /contratar
      defaults: { _controller: JAMNotasFrontendBundle:Contratos:contratarPremium }
+
+jamn_orm_crear:
+    pattern:  /estudio_orm/crear
+    defaults: { _controller: JAMNotasFrontendBundle:EstudioORM:crear }
+
+jamn_orm_recuperar:
+    pattern:  /estudio_orm/recuperar/{id}
+    defaults: { _controller: JAMNotasFrontendBundle:EstudioORM:recuperar }
+
+jamn_orm_recuperar_notas:
+    pattern:  /estudio_orm/recuperar_notas
+    defaults: { _controller: JAMNotasFrontendBundle:EstudioORM:recuperarNotas }
+
+jamn_orm_dql:
+    pattern:  /estudio_orm/dql
+    defaults: { _controller: JAMNotasFrontendBundle:EstudioORM:dql }

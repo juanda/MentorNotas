@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <h1>Prueba del ORM para mostrar una nota</h1>
+
+    <h2>Nota {{ nota.id }}</h2>
+
+    <table border="1">
+        <tr>
+            <td>Titulo:</td>
+            <td>{{ nota.titulo }}</td>
+        </tr>
+
+        <tr>
+            <td>Texto:</td>
+            <td>{{ nota.texto }}</td>
+        </tr>
+
+        <tr>
+            <td>Path:</td>
+            <td>{{ nota.path }}</td>
+        </tr>
+
+    </table>
+
+{% endblock %}
