@@ -1,0 +1,7 @@
+parameters:
+#    jam_notas_backend.example.class: Jazzyweb\AulasMentor\NotasBackendBundle\Example
+
+services:
+#    jam_notas_backend.example:
+#        class: %jam_notas_backend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,8 @@
+jam_notas_backend:
+    resource: "@JAMNotasBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jam_notas_frontend:
+    resource: "@JAMNotasFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+

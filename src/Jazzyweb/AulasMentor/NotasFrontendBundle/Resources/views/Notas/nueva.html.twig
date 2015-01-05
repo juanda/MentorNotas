@@ -1,0 +1,17 @@
+{% extends 'JAMNotasFrontendBundle:Notas:layout-etiquetas-notas.html.twig' %}
+
+ {% block body %}
+
+     {{ parent() }}
+
+     <div id="detalle_nota" class="marco detalle_nota">
+         <h2>Detalle de nota</h2>
+         <h2>Formulario crear Nueva Nota</h2>
+         <form action="{{ path('jamn_nueva') }}" method="POST">
+             nombre:<input type="text" id="nombre" name="nombre" />
+             <input type="submit" value="guardar" />
+
+         </form>
+     </div>
+
+ {% endblock %}

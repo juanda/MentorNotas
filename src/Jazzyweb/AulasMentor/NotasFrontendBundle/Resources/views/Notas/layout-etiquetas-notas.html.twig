@@ -1,0 +1,85 @@
+{% extends '::base.html.twig' %}
+
+ {% block stylesheets %}
+
+     <style>
+         .marco {
+             border-style:  solid;
+             padding: 5px;
+             margin: 5px;
+             float: left;
+             width: 500px;
+             height: 250px;
+         }
+
+         .detalle_nota{
+             background-color: #DFDFDF;
+         }
+
+         .mensaje{
+             width: 1025px;
+             height: 20px;
+             background-color: #f66;
+
+         }
+
+     </style>
+
+ {% endblock %}
+
+ {% block body %}
+
+     <h1>Implementación de la lógica de control de la aplicación</h1>
+
+     {% for flashMessage in app.session.flashbag.get('mensaje') %}
+         <div id="etiquetas" class="marco mensaje">
+             <b>{{ flashMessage }}</b>
+         </div>
+     {% endfor %}
+
+     <div id="etiquetas" class="marco">
+         <h2>Listado de etiquetas</h2>
+         <p>Siempre se muestran todas las etiquetas</p>
+         <ul>
+             {% for etiqueta in etiquetas %}
+                 <li>
+                     <a href="{{ path('jamn_conetiqueta', {etiqueta: etiqueta.id}) }}">
+                         {{ etiqueta.texto}}
+                     </a>
+                 </li>
+             {% endfor %}
+         </ul>
+     </div>
+
+     <div id="notas" class="marco">
+         <h2>Listado de notas</h2>
+         <p>
+             Se mostraran las notas que coincidan con el siguiente criterio de
+             búsqueda:
+         </p>
+         tipo de búsqueda: <b>{{ app.session.get('busqueda.tipo') }}</b>,
+         valor de la búsqueda: <b>{{ app.session.get('busqueda.valor') }}</b>
+
+         <ul>
+             {% for nota in notas %}
+                 <li>
+                     <a href="{{ path('jamn_nota', {id: nota.id}) }}">
+                         {{ nota.titulo }}
+                     </a>
+                 </li>
+             {% endfor %}
+         </ul>
+
+     </div>
+
+     <div id="buscar" class="marco">
+         <h2>Formulario de búsqueda de notas</h2>
+         <form action="{{ path('jamn_buscar') }}" method="POST">
+
+             <input type="text" id="termino" name="termino" />
+             <input type="submit" value="buscar" />
+
+         </form>
+     </div>
+
+ {% endblock %}

@@ -1,0 +1,3 @@
+jam_notas_backend_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: JAMNotasBackendBundle:Default:index }

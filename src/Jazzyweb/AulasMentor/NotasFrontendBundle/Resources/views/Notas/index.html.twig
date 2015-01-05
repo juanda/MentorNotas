@@ -1,0 +1,31 @@
+{% extends 'JAMNotasFrontendBundle:Notas:layout-etiquetas-notas.html.twig' %}
+
+  {% block body %}
+
+      {{ parent() }}
+
+      <div id="detalle_nota" class="marco detalle_nota">
+      <h2>Detalle de nota</h2>
+      {% if nota_seleccionada %}
+          <a href="{{ path('jamn_nueva') }}">Nueva nota</a>
+          <a href="{{ path('jamn_editar', {'id': nota_seleccionada.id }) }}">
+              Editar nota
+          </a>
+          <a href="{{ path('jamn_borrar', {'id': nota_seleccionada.id }) }}">
+              Borrar nota
+          </a>
+
+          <table border="1">
+              <tr>
+                  <td>ID</td>
+                  <td>{{ nota_seleccionada.id }}</td>
+              </tr>
+              <tr>
+                  <td>nombre</td>
+                  <td>{{ nota_seleccionada.titulo }}</td>
+              </tr>
+          </table>
+          </div>
+      {% endif %}
+
+  {% endblock %}
