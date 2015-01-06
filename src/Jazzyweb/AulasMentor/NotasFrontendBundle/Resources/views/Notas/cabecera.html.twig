@@ -1,0 +1,40 @@
+<div class="ui-layout-north ui-widget-content" >
+
+    <div class="banner">
+        {% if not is_granted('ROLE_PREMIUM') %}
+            <span style="font-size: xx-large">
+              PUBLICIDAD
+          </span>
+            <a class="ui-button usuario-tool premium ui-corner-all"
+               href="{{ path('jamn_contratar') }}">
+                contrata premium, elimina la publicidad y obten numerosas ventajas!
+            </a>
+        {% else %}
+            <span style="font-size: xx-large">
+              BOTONERA PREMIUM
+          </span>
+            <a class="ui-button usuario-tool premium ui-corner-all"
+               href="{{ path('jamn_espacio_premium') }}">
+                Mi espacio premium
+            </a>
+        {% endif %}
+    </div>
+
+    <div class="logo">
+        <span>MentorNotas</span>
+        <img style="float:left;" height="60"
+             src="{{ asset('bundles/jamnotasfrontend/images/mentor.png')}}" />
+    </div>
+
+    <div class="signout">
+          <span class="usuario-nombre">
+            {{ app.user.nombre }} {{app.user.apellidos }}
+          </span>
+        <a id="btn_salir"
+           class="ui-button ui-button-text-icon-primary usuario-tool salir ui-corner-all"
+           href="{{path('jamn_logout')}}">
+            <span class="ui-button-icon-primary ui-icon ui-icon-power"></span>
+            <span class="ui-button-text">salir</span></a>
+    </div>
+
+</div>

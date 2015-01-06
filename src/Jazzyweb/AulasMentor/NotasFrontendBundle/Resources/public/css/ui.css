@@ -1,0 +1,194 @@
+/*
+ * This file is part of the CursoSf2 package.
+ *
+ * (c) Juan David Rodríguez García <juandavid.rodriguez@ite.educacion.es>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+*/
+
+h3, h4 { /* Headers & Footer in Center & East panes */
+    font-size:		1.1em;
+    background:		#EEF;
+    border:			1px solid #BBB;
+    border-width:	0 0 1px;
+    padding:		7px 10px;
+    margin-top:			0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+
+.separador{
+    padding: 5px;
+}
+
+.etiquetas ul{
+    list-style:none;
+    padding: 0;
+}
+
+.etiquetas li{                
+    padding: 3px;
+}
+
+.etiquetas a{                
+    text-decoration:none;
+}
+.nota{
+    border-bottom-color:#AAA;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    cursor:pointer !important;
+    height:85px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.seleccionada{
+    background-color: #EBEB71;
+}
+
+.nota-container{
+    float:left;
+    padding-left:5px;
+    padding-top:6px;
+    width:290px;
+}
+.nota-titulo{
+    font-size:12px;
+    font-weight:bold;
+    line-height:16px;
+    width:259px;
+}
+.nota-fecha{
+    font-size:10px;
+    font-weight:bold;
+    line-height:13px;
+    margin-right:4px;
+}
+.nota-content{
+    color:#404040;
+    font-size:10px;
+    line-height:13px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.nota-detalle-titulo{
+    font-weight: bolder;
+}
+
+.nota-detalle-etiquetas{
+    padding: 0.5em;
+}
+
+.nota-detalle-etiqueta{
+    border-style: solid;
+    border-width: thin;
+    border-color: #2D95EB;
+    font-size:12px;
+    background-color: #9DC8EB;
+    font-weight: 100;
+    padding: 0.3em;
+}
+
+.nota-detalle-content{
+    padding: 0.5em;
+    font-size: small;
+}
+
+.nota-detalle-adjunto{
+    float: right;
+
+    font-size: small;
+
+}
+
+.my-widget-content{
+    padding: 5px;
+}
+
+/* sobreescribe una clase de jquery-ui*/
+.ui-layout-content{
+    padding: 0px;
+}
+
+form input.buscar{
+    min-height:  34px;
+    color: #AAA;
+}
+
+form input.activo{  
+    background: #EBEB71;  
+    border: 1px solid #0099d4;
+    color: #000;
+}
+
+.my-buttonset-right {
+    float: right;                           
+}
+
+.my-buttonset-left {  
+
+}
+
+.banner{
+    border-style: groove;
+    width: 700px;
+    height: 80px;
+    float: left;
+}
+
+.signout{
+    float: right;   
+}
+
+.usuario-nombre{
+    font-size: small;
+    font-style: italic;
+}
+
+.usuario-tool{
+    border-style: solid;
+    font-size:12px; 
+    font-weight: 100;
+    padding: 0.3em;           
+    text-decoration: none;
+}
+
+.premium{
+    border-width: thin;
+    border-color: #93D143;
+    background-color: #93D143;
+    width: 150px;
+    padding: 0.5em;
+    float: right;
+}
+
+.salir{               
+    border-width: thin;
+    border-color: #F06979;
+    background-color: #F06979;
+
+}
+
+.salir-hover{
+    border-width: thin;
+    border-color: #D11D1D;
+    background-color: #D11D1D;
+}
+
+.logo{
+    float:left;
+}
+
+.cr{
+    font-size: x-small;
+    float: left;
+}
+
+.powered{
+    float: right;
+}

@@ -1,31 +1,77 @@
 {% extends 'JAMNotasFrontendBundle:Notas:layout-etiquetas-notas.html.twig' %}
 
-  {% block body %}
+    {% block detalle_y_edicion %}
+        <div class="ui-layout-east">
+            <h3 class="ui-widget-header">Nota</h3>
 
-      {{ parent() }}
+            {% if nota_seleccionada %}
+                <div id="confirma-borrado"></div>
 
-      <div id="detalle_nota" class="marco detalle_nota">
-      <h2>Detalle de nota</h2>
-      {% if nota_seleccionada %}
-          <a href="{{ path('jamn_nueva') }}">Nueva nota</a>
-          <a href="{{ path('jamn_editar', {'id': nota_seleccionada.id }) }}">
-              Editar nota
-          </a>
-          <a href="{{ path('jamn_borrar', {'id': nota_seleccionada.id }) }}">
-              Borrar nota
-          </a>
+                <div class="ui-widget my-widget">
+                    <div class="ui-widget-content my-widget-content">
+                          <span class="my-buttonset-left">
+                              <a id="btn_crear" href="{{ path('jamn_nueva')}}">crear</a>
+                          </span>
 
-          <table border="1">
-              <tr>
-                  <td>ID</td>
-                  <td>{{ nota_seleccionada.id }}</td>
-              </tr>
-              <tr>
-                  <td>nombre</td>
-                  <td>{{ nota_seleccionada.titulo }}</td>
-              </tr>
-          </table>
-          </div>
-      {% endif %}
+                          <span class="my-buttonset-right">
+                              <a id="btn_editar"
+                                 href="{{ path('jamn_editar', {'id': nota_seleccionada.id }) }}">
+                                  editar
+                              </a>
+                              <button id="btn_borrar" type="submit">Borrar</button>
 
-  {% endblock %}
+                              <form id="form_borrar"
+                                    action="{{ path('jamn_borrar', { 'id': nota_seleccionada.id }) }}"
+                                    method="post">
+                                  {{ form_widget(delete_form) }}
+                              </form>
+                          </span>
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="ui-layout-content ui-widget-content">
+                    <div class="ui-widget-content my-widget-content">
+                        <div id="nota-detalle">
+
+                            <div class="nota-detalle-titulo">
+                                {{ nota_seleccionada.titulo }}
+                            </div>
+
+                            {% if nota_seleccionada.path %}
+                                <div class="nota-detalle-adjunto">
+                                    <span class="ui-icon ui-icon-disk" style="float: left;">
+                                    </span>
+                                    {% set urlFile = asset( nota_seleccionada.webPath(app.user.getUsername) ) %}
+                                    <a href="{{ urlFile }}">
+                                        {{ nota_seleccionada.path}}
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            <div class="nota-detalle-etiquetas">
+                                {% for etiqueta in nota_seleccionada.etiquetas %}
+                                    <span class="nota-detalle-etiqueta ui-corner-all">
+                                     {{ etiqueta.texto }}
+                                     </span>
+                                {% endfor %}
+
+                            </div>
+                            <div class="nota-detalle-content">
+                                {{ nota_seleccionada.texto|raw }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="ui-widget my-widget">
+                    <div class="ui-widget-content my-widget-content">
+                      <span class="my-buttonset-left">
+                        <a id="btn_crear" href="{{ path('jamn_nueva')}}">crear</a>
+                      </span>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endblock %}

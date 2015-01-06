@@ -1,0 +1,79 @@
+<div class="ui-layout-east">
+    <h3 class="ui-widget-header">Crear Nota</h3>
+
+    <div id="confirma-borrado"></div>
+
+    <div class="ui-widget my-widget">
+        <div class="ui-widget-content my-widget-content">
+             <span class="my-buttonset-left">
+                 <button id="btn_hecho_crear">hecho</button>
+             </span>
+
+             <span class="my-buttonset-right">
+                 <a id="btn_cancelar" href="{{ path('jamn_homepage') }}">
+                     cancelar
+                 </a>
+             </span>
+        </div>
+    </div>
+
+    <div class="separador"></div>
+
+    <div>
+        <div class="ui-widget-content my-widget-content">
+
+            {{ form_start(new_form,{
+            'attr': {'id': 'form_crear_nota'},
+            'action': path('jamn_nueva'),
+            'method': 'post'
+            })
+            }}
+            {% if form_errors(new_form) %}
+                <div class="ui-state-error">{{ form_errors(new_form) }}</div>
+            {% endif %}
+
+            <div class="row">
+                <div style="font-size: small">Título:</div>
+                {% if form_errors(new_form.titulo) %}
+                    <div style="width: 300px;" class="ui-state-error">
+                        {{ form_errors(new_form.titulo) }}
+                    </div>
+                {% endif %}
+
+                {{ form_widget(new_form.titulo, {'attr': {'class': 'nota-titulo ui-corner-all', 'style': 'width:300px;'} }) }}
+            </div>
+
+            <div class="row">
+                <span style="font-size: small">Etiquetas:</span>
+
+
+                <ul id="nota_etiquetas">
+                </ul>
+            </div>
+
+            <div class="row">
+                {% if form_errors(new_form.texto) %}
+                    <div class="ui-state-error">
+                        {{ form_errors(new_form.texto) }}
+                    </div>
+                {% endif %}
+                {{ form_widget(new_form.texto) }}
+
+            </div>
+
+            {% if is_granted('ROLE_PREMIUM') %}
+            <div class="row">
+                <div style="font-size: small">Cambiar Fichero:</div>
+                {% if form_errors(new_form.file) %}
+                    <div class="ui-state-error">{{ form_errors(new_form.file) }}</div>
+                {% endif %}
+                {{ form_widget(new_form.file) }}
+                {% endif %}
+            </div>
+
+            {{ form_widget(new_form._token) }}
+
+            {{ form_end(new_form) }}
+        </div>
+    </div>
+</div>

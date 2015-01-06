@@ -1,90 +1,42 @@
-{% extends '::base.html.twig' %}
+{% extends 'JAMNotasFrontendBundle::base.html.twig' %}
 
- {% block stylesheets %}
+  {% block stylesheets%}
+      <link
+              href="{{ asset('bundles/jamnotasfrontend/vendors/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css') }}"
+              type="text/css" rel="stylesheet" />
+      <link
+              href="{{ asset('bundles/jamnotasfrontend/vendors/jquery-layout/css/layout-default.css') }}"
+              type="text/css" rel="stylesheet" />
+      <link
+              href="{{ asset('bundles/jamnotasfrontend/css/ui.css') }}"
+              type="text/css" rel="stylesheet" />
+  {% endblock%}
 
-     <style>
-         .marco {
-             border-style:  solid;
-             padding: 5px;
-             margin: 5px;
-             float: left;
-             width: 500px;
-             height: 250px;
-         }
+  {% block javascripts %}
+      <script
+              src="{{ asset('bundles/jamnotasfrontend/vendors/jquery/js/jquery-1.10.2.min.js') }}"
+              type="text/javascript"></script>
+      <script
+              src="{{ asset('bundles/jamnotasfrontend/vendors/jquery/js/jquery-ui-1.10.3.custom.min.js') }}"
+              type="text/javascript"></script>
+      <script
+              src="{{ asset('bundles/jamnotasfrontend/vendors/jquery-layout/js/jquery.layout.min-1.2.0.js') }}"
+              type="text/javascript"></script>
+      <script
+              src="{{ asset('bundles/jamnotasfrontend/js/ui.js') }}"
+              type="text/javascript"></script>
+  {% endblock %}
 
-         .detalle_nota{
-             background-color: #DFDFDF;
-         }
+  {% block body %}
 
-         .mensaje{
-             width: 1025px;
-             height: 20px;
-             background-color: #f66;
+      {% include 'JAMNotasFrontendBundle:Notas:cabecera.html.twig' %}
 
-         }
+      {% include 'JAMNotasFrontendBundle:Notas:etiquetas.html.twig' %}
 
-     </style>
+      {% include 'JAMNotasFrontendBundle:Notas:notas.html.twig' %}
 
- {% endblock %}
+      {% include 'JAMNotasFrontendBundle:Notas:pie.html.twig' %}
 
- {% block body %}
-     <p>Bienvenido {{ app.user.username }}</p>
-     <a href="{{path('jamn_logout')}}">Cerrar sesión </a>
-     <h1>Implementación de la lógica de control de la aplicación</h1>
+      {% block detalle_y_edicion %} {% endblock %}
 
-     {% if not is_granted('ROLE_PREMIUM') %}
-         <h2>PUBLICIDAD AQUÍ</h2>
-     {% endif %}
-
-     {% for flashMessage in app.session.flashbag.get('mensaje') %}
-         <div id="etiquetas" class="marco mensaje">
-             <b>{{ flashMessage }}</b>
-         </div>
-     {% endfor %}
-
-     <div id="etiquetas" class="marco">
-         <h2>Listado de etiquetas</h2>
-         <p>Siempre se muestran todas las etiquetas</p>
-         <ul>
-             {% for etiqueta in etiquetas %}
-                 <li>
-                     <a href="{{ path('jamn_conetiqueta', {etiqueta: etiqueta.id}) }}">
-                         {{ etiqueta.texto}}
-                     </a>
-                 </li>
-             {% endfor %}
-         </ul>
-     </div>
-
-     <div id="notas" class="marco">
-         <h2>Listado de notas</h2>
-         <p>
-             Se mostraran las notas que coincidan con el siguiente criterio de
-             búsqueda:
-         </p>
-         tipo de búsqueda: <b>{{ app.session.get('busqueda.tipo') }}</b>,
-         valor de la búsqueda: <b>{{ app.session.get('busqueda.valor') }}</b>
-
-         <ul>
-             {% for nota in notas %}
-                 <li>
-                     <a href="{{ path('jamn_nota', {id: nota.id}) }}">
-                         {{ nota.titulo }}
-                     </a>
-                 </li>
-             {% endfor %}
-         </ul>
-
-     </div>
-
-     <div id="buscar" class="marco">
-         <h2>Formulario de búsqueda de notas</h2>
-         <form action="{{ path('jamn_buscar') }}" method="POST">
-
-             <input type="text" id="termino" name="termino" />
-             <input type="submit" value="buscar" />
-
-         </form>
-     </div>
-
- {% endblock %}
+  {% endblock %}

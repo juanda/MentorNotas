@@ -3,6 +3,8 @@
 namespace Jazzyweb\AulasMentor\NotasFrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Nota
@@ -25,31 +27,32 @@ class Nota
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255")
      */
     private $titulo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="texto", type="text")
+     * @ORM\Column(name="texto", type="text", nullable=true)
      */
     private $texto;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha", type="datetime")
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
      */
     private $fecha;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
      */
     private $path;
-
-    ////ASOCIACIONES////
 
     /**
      * @ORM\ManyToOne(targetEntity="Usuario")
@@ -61,7 +64,7 @@ class Nota
      */
     private $etiquetas;
 
-    ////FIN ASOCIACIONES////
+
 
     public function __construct()
     {
@@ -71,7 +74,7 @@ class Nota
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -94,7 +97,7 @@ class Nota
     /**
      * Get titulo
      *
-     * @return string 
+     * @return string
      */
     public function getTitulo()
     {
@@ -117,7 +120,7 @@ class Nota
     /**
      * Get texto
      *
-     * @return string 
+     * @return string
      */
     public function getTexto()
     {
@@ -140,7 +143,7 @@ class Nota
     /**
      * Get fecha
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFecha()
     {
@@ -163,7 +166,7 @@ class Nota
     /**
      * Get path
      *
-     * @return string 
+     * @return string
      */
     public function getPath()
     {
@@ -186,7 +189,7 @@ class Nota
     /**
      * Get usuario
      *
-     * @return \Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Usuario 
+     * @return \Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Usuario
      */
     public function getUsuario()
     {
@@ -219,10 +222,56 @@ class Nota
     /**
      * Get etiquetas
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEtiquetas()
     {
         return $this->etiquetas;
+    }
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    public $file;
+
+
+
+    public function getAbsolutePath($usuario = null) {
+        return null === $this->path ? null : $this->getUploadRootDir($usuario) . '/' . $this->path;
+    }
+
+    public function getWebPath($usuario = null) {
+        return null === $this->path ? null : $this->getUploadDir($usuario) . '/' . $this->path;
+    }
+
+    protected function getUploadRootDir($usuario = null) {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__ . '/../../../../../web/' . $this->getUploadDir($usuario);
+    }
+
+    protected function getUploadDir($usuario = null) {
+        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+        if ($usuario)
+            return 'uploads/notas/' . $usuario;
+        else
+            return 'uploads/notas';
+    }
+
+    public function upload($usuario = null) {
+        // the file property can be empty if the field is not required
+        if (null === $this->file) {
+            return;
+        }
+
+        // we use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+        // move takes the target directory and then the target filename to move to
+        $this->file->move($this->getUploadRootDir($usuario), $this->file->getClientOriginalName());
+
+        // set the path property to the filename where you'ved saved the file
+        $this->path = $this->file->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->file = null;
     }
 }

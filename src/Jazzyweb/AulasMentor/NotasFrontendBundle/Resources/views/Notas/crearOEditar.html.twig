@@ -1,0 +1,98 @@
+{% extends 'JAMNotasFrontendBundle:Notas:layout-etiquetas-notas.html.twig' %}
+
+ {% block javascripts%}
+
+     {{ parent() }}
+     <script
+             src="{{ asset('bundles/jamnotasfrontend/vendors/CLEditor/jquery.cleditor.min.js') }}"
+             type="text/javascript"></script>
+     <script
+             src="{{ asset('bundles/jamnotasfrontend/vendors/tagit/js/tag-it.js') }}"
+             type="text/javascript"></script>
+
+     <script>
+         $(document).ready( function() {
+             var tituloBox = $("#nota_titulo");
+
+             $( "#btn_hecho_crear" ).button({
+                 icons: {
+                     primary: "ui-icon-disk"
+                 }
+             });
+
+             $("#btn_hecho_crear").click(function(){
+                 $("#form_crear_nota").submit();
+             });
+
+             $( "#btn_hecho_editar" ).button({
+                 icons: {
+                     primary: "ui-icon-disk"
+                 }
+             });
+
+             $("#btn_hecho_editar").click(function(){
+                 $("#form_editar_nota").submit();
+             });
+
+             $( "#btn_cancelar" ).button({
+                 icons: {
+                     primary: "ui-icon-cancel"
+                 }
+             });
+
+
+
+             $("#nota_etiquetas").tagit({
+                 availableTags: [
+                     {%for etiqueta in etiquetas%}
+                     "{{ etiqueta.texto}}",
+                     {% endfor %}
+                 ]
+
+             });
+
+
+             tituloBox.focus(function(){
+                 if($(this).attr("value") == tituloBox1Default){
+                     $(this).attr("value", "");
+                 }
+                 $(this).addClass("nota-titulo-activo");
+             });
+
+             tituloBox.blur(function(){
+                 $(this).removeClass("nota-titulo-activo");
+
+
+             });
+             $("#nota_texto").cleditor({
+                 controls: "bold italic underline strikethrough subscript superscript | font size " +
+                 "style | color highlight removeformat | bullets numbering | outdent " +
+                 "indent | alignleft center alignright justify | undo redo | " +
+                 "rule image link unlink | print source"
+             });
+         })
+
+     </script>
+ {% endblock%}
+
+ {% block stylesheets %}
+     {{ parent() }}
+     <link rel="stylesheet" type="text/css"
+           href="{{ asset('bundles/jamnotasfrontend/vendors/CLEditor/jquery.cleditor.css') }}" />
+     <link rel="stylesheet" type="text/css"
+           href="{{ asset('bundles/jamnotasfrontend/vendors/tagit/css/jquery.ui.autocomplete.custom.css') }}" />
+     <link rel="stylesheet" type="text/css"
+           href="{{ asset('bundles/jamnotasfrontend/vendors/tagit/css/jquery.tagit.css') }}" />
+
+ {% endblock %}
+
+
+ {% block detalle_y_edicion %}
+
+     {% if edita  %}
+         {% include 'JAMNotasFrontendBundle:Notas:editar.html.twig' %}
+     {% else %}
+         {% include 'JAMNotasFrontendBundle:Notas:crear.html.twig' %}
+     {% endif %}
+
+ {% endblock %}

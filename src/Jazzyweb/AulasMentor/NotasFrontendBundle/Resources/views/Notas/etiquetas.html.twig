@@ -1,0 +1,21 @@
+<div class="ui-layout-west etiquetas">
+    <h3 class="ui-widget-header">Etiquetas</h3>
+    <div class="ui-layout-content ui-widget-content">
+        <ul>
+            <li>
+                <span class="ui-icon ui-icon-star" style="float:left;"></span>
+                <a href="{{ path("jamn_conetiqueta", {"etiqueta": 'todas'}) }}">
+                    todas las notas
+                </a>
+            </li>
+            {% for etiqueta in etiquetas %}
+                <li>
+                    <span class="ui-icon ui-icon-tag" style="float:left;"></span>
+                    <a href="{{ path("jamn_conetiqueta", {"etiqueta": etiqueta.id}) }}">
+                        {{ etiqueta.texto }}
+                    </a>
+                </li>
+            {% endfor%}
+        </ul>
+    </div>
+</div>

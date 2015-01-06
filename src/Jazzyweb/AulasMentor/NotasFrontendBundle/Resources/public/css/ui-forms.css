@@ -1,0 +1,35 @@
+/*
+ * This file is part of the CursoSf2 package.
+ *
+ * (c) Juan David Rodríguez García <juandavid.rodriguez@ite.educacion.es>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+*/
+
+form .row{
+    padding: 2px;
+    width: 500px;
+}
+
+form input.nota-titulo{
+    color: #363636;
+}
+
+form input.nota-titulo-activo{
+    background: #EBEB71;  
+    border: 1px solid #0099d4;
+    color: #000;
+}
+
+.row-titulo{
+    width: 250px;
+
+}
+
+.row-fecha{
+
+    float: right;
+}
+
+
