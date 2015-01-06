@@ -1,0 +1,84 @@
+{% extends 'JAMNotasFrontendBundle::base.html.twig' %}
+
+ {% block body %}
+     <div class="mentornotas-content-login">
+         <h1>Regístrate</h1>
+         <div>
+             {{ form_start(form,
+             {
+             'action': path('jamn_registro'),
+             'method': 'post',
+             'attr': {'novalidate': 'novalidate', 'id': 'login'}
+             })
+             }}
+
+             {% if form_errors(form) %}
+                 <div class="error">{{ form_errors(form) }}</div>
+             {% endif %}
+
+             <div>
+                 {% if form_errors(form.nombre ) %}
+                     <div class="error">{{ form_errors(form.nombre ) }}</div>
+                 {%endif%}
+                 <label for="nombre">Tu nombre:</label>
+                 {{ form_widget(form.nombre) }}
+             </div>
+
+             <div>
+                 {% if form_errors(form.apellidos ) %}
+                     <div class="error">{{ form_errors(form.apellidos ) }}
+                     </div>
+                 {%endif%}
+                 <label for="apellidos">Apellidos:</label>
+                 {{ form_widget(form.apellidos) }}
+             </div>
+
+             <div>
+                 {% if form_errors(form.username ) %}
+                     <div class="error">{{ form_errors(form.username ) }}
+                     </div>
+                 {%endif%}
+                 <label for="username">Username:</label>
+                 {{ form_widget(form.username) }}
+             </div>
+
+             <div>
+                 {% if form_errors(form.email ) %}
+                     <div class="error">{{ form_errors(form.email ) }}
+                     </div>
+                 {%endif%}
+                 <label for="email">Email:</label>
+                 {{ form_widget(form.email) }}
+
+             </div>
+
+             <div>
+                 {% if form_errors(form.password ) %}
+                     <div class="error">
+                         {{ form_errors(form.password ) }}
+                     </div>
+                 {%endif%}
+                 <label for="password">Password:</label>
+                 {{ form_widget(form.password) }}
+
+             </div>
+
+             <div>
+                 {% if form_errors(form.password_again ) %}
+                     <div class="error">
+                         {{ form_errors(form.password_again ) }}
+                     </div>
+                 {%endif%}
+                 <label for="password_again">Password(otra vez):
+                 </label>
+                 {{ form_widget(form.password_again) }}
+
+             </div>
+
+             {{ form_rest(form) }}
+             <input type="submit" class="mentornotas-button-grey" value="Adelante" />
+
+             {{ form_end(form) }}
+         </div>
+     </div>
+ {% endblock %}

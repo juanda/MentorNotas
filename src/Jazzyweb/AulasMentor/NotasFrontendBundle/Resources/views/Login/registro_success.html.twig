@@ -1,0 +1,16 @@
+{% extends 'JAMNotasFrontendBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="mentornotas-content-login">
+
+        <h1>Hola {{ usuario.nombre }}</h1>
+
+        <p> Gracias por registrarte en <i>MentorNotas</i></p>
+
+        <p>En breve recibirás un correo electrónico con un enlace para que definas tu
+            password y actives tu cuenta.</p>
+
+        <p><a href="{{ path('jamn_homepage') }}">Ir a página de login</a></p>
+
+    </div>
+{% endblock %}

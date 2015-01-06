@@ -1,0 +1,10 @@
+Hola {{ usuario.nombre }} {{ usuario.apellidos }},
+
+Tú o alguien ha creado una cuenta en la aplicación MentorNotas.
+
+Si quieres activarla sigue este enlace:
+
+
+{{ url("jamn_activar_cuenta", {"token": usuario.tokenRegistro}) }}
+
+Un saludo!

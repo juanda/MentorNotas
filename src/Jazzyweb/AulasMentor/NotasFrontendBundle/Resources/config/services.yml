@@ -1,7 +1,11 @@
 parameters:
-#    jam_notas_frontend.example.class: Jazzyweb\AulasMentor\NotasFrontendBundle\Example
+    jam_notas_frontend.registro.class: Jazzyweb\AulasMentor\NotasFrontendBundle\Services\Registro
 
 services:
-#    jam_notas_frontend.example:
-#        class: %jam_notas_frontend.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    jam_notas_frontend.registro:
+        class: %jam_notas_frontend.registro.class%
+        arguments:
+           - "@doctrine.orm.entity_manager"
+           - "@mailer"
+           - "@templating"
+           - "@security.encoder_factory"
