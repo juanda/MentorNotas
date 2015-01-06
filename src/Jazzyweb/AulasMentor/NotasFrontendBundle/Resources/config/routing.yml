@@ -84,3 +84,11 @@ jamn_orm_recuperar_notas:
 jamn_orm_dql:
     pattern:  /estudio_orm/dql
     defaults: { _controller: JAMNotasFrontendBundle:EstudioORM:dql }
+
+jamn_evf:
+   pattern: /estudio_valyforms/valida_usuario
+   defaults: { _controller: JAMNotasFrontendBundle:EstudioValidacionYFormulario:validaUsuario }
+
+jamn_evf_form_usuario:
+ pattern: /estudio_valyforms/form_usuario
+ defaults: { _controller: JAMNotasFrontendBundle:EstudioValidacionYFormulario:formUsuario }

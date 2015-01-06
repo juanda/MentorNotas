@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+  {% block body %}
+
+      <h1>Como se pintan los formularios: El formulario usuario </h1>
+
+      {% for flashMessage in app.session.flashbag.get('mensaje') %}
+          <div style="background-color: rosybrown">
+              <b>{{ flashMessage }}</b>
+          </div>
+      {% endfor %}
+
+      <h2>Una manera más "verbosa", pero con más control sobre los widgets</h2>
+      {{ form_start(form,
+      {
+      'action': path('jamn_evf_form_usuario'),
+      'method': 'POST',
+      'attr': {'novalidate': 'novalidate'}
+      })
+      }}
+
+      {{ form_errors(form) }}
+
+      {{ form_row(form.nombre) }}
+      {{ form_row(form.apellidos) }}
+      {{ form_row(form.email) }}
+      {{ form_row(form.isActive) }}
+      {{ form_row(form.username) }}
+      {{ form_row(form.password) }}
+
+      {{ form_rest(form) }}
+
+      {{ form_end(form) }}
+  {% endblock %}    

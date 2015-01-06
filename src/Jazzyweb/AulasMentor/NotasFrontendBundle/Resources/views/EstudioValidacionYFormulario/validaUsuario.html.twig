@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+ {% block body %}
+
+     <h1>Prueba de validación de objetos Usuario</h1>
+
+     {% for u in usuarios%}
+
+         <h3>Datos del usuario {{u.num}}</h3>
+
+         <table border="1">
+             <tr>
+                 <td>id:</td>
+                 <td>{{u.user.id}}</td>
+             </tr>
+             <tr>
+                 <td>nombre:</td>
+                 <td>{{u.user.nombre}}</td>
+             </tr>
+             <tr>
+                 <td>apellidos:</td>
+                 <td>{{u.user.apellidos}}</td>
+             </tr>
+             <tr>
+                 <td>username:</td>
+                 <td>{{u.user.username}}</td>
+             </tr>
+             <tr>
+                 <td>password:</td>
+                 <td>{{u.user.password}}</td>
+             </tr>
+             <tr>
+                 <td>salt:</td>
+                 <td>{{u.user.salt}}</td>
+             </tr>
+             <tr>
+                 <td>email:</td>
+                 <td>{{u.user.email}}</td>
+             </tr>
+             <tr>
+                 <td>esActivo:</td>
+                 <td>{{u.user.isActive}}</td>
+             </tr>
+
+         </table>
+
+         {% if u.errors|length > 0 %}
+             El usuario no es válido porque:
+             <ul>
+                 {% for error in u.errors %}
+                     <li>{{ error.propertyPath }} {{ error.message }} </li>
+                 {% endfor %}
+             </ul>
+         {% else %}
+             El usuario si es válido
+         {% endif %}
+
+         <hr/>
+     {% endfor %}
+
+ {% endblock %}
