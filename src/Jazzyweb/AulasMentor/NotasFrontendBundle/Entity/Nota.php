@@ -274,4 +274,8 @@ class Nota
         // clean up the file property as you won't need it anymore
         $this->file = null;
     }
+
+    public function __toString(){
+        return $this->titulo;
+    }
 }

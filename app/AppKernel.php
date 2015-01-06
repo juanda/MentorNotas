@@ -18,6 +18,14 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Jazzyweb\AulasMentor\NotasFrontendBundle\JAMNotasFrontendBundle(),
             new Jazzyweb\AulasMentor\NotasBackendBundle\JAMNotasBackendBundle(),
+
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
+            new Sonata\AdminBundle\SonataAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -150,4 +150,8 @@ class Contrato
     {
         return $this->usuario;
     }
+
+    public function __toString(){
+        return 'contrato ' . $this->id;
+    }
 }

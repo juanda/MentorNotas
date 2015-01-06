@@ -2,9 +2,20 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+sonata_admin:
+    title:   Administración MentorNotas
+    title_logo: bundles/jamnotasfrontend/images/logo.png
+
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"

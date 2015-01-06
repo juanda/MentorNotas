@@ -1,7 +1,45 @@
-parameters:
-#    jam_notas_backend.example.class: Jazzyweb\AulasMentor\NotasBackendBundle\Example
-
 services:
-#    jam_notas_backend.example:
-#        class: %jam_notas_backend.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+  sonata.notas_backend.admin.tarifa:
+    class: Jazzyweb\AulasMentor\NotasBackendBundle\Admin\TarifaAdmin
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: 'Contratos', label: 'Tarifas' }
+    arguments:
+      - ~
+      - Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Tarifa
+      - ~
+
+  sonata.notas_backend.admin.contrato:
+    class: Jazzyweb\AulasMentor\NotasBackendBundle\Admin\ContratoAdmin
+    tags:
+     - { name: sonata.admin, manager_type: orm, group: 'Contratos', label: 'Contratos' }
+    arguments:
+     - ~
+     - Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Contrato
+     - ~
+
+  sonata.notas_backend.admin.grupo:
+     class: Jazzyweb\AulasMentor\NotasBackendBundle\Admin\GrupoAdmin
+     tags:
+       - { name: sonata.admin, manager_type: orm, group: 'Usuarios', label: 'Grupos' }
+     arguments:
+       - ~
+       - Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Grupo
+       - ~
+
+  sonata.notas_backend.admin.publicidad:
+     class: Jazzyweb\AulasMentor\NotasBackendBundle\Admin\PublicidadAdmin
+     tags:
+       - { name: sonata.admin, manager_type: orm, group: 'Publicidad', label: 'Publicidad' }
+     arguments:
+       - ~
+       - Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Publicidad
+       - ~
+
+  sonata.notas_backend.admin.usuario:
+     class: Jazzyweb\AulasMentor\NotasBackendBundle\Admin\UsuarioAdmin
+     tags:
+       - { name: sonata.admin, manager_type: orm, group: 'Usuarios', label: 'Usuarios' }
+     arguments:
+       - ~
+       - Jazzyweb\AulasMentor\NotasFrontendBundle\Entity\Usuario
+       - JAMNotasBackendBundle:UsuarioAdmin

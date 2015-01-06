@@ -6,3 +6,15 @@ jam_notas_frontend:
     resource: "@JAMNotasFrontendBundle/Resources/config/routing.yml"
     prefix:   /
 
+JAMNotasFrontendBundle_tarifa:
+      resource: "@JAMNotasFrontendBundle/Resources/config/routing/tarifa.yml"
+      prefix:   /tarifa
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
