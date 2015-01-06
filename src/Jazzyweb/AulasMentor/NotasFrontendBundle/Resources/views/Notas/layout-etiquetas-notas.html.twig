@@ -28,8 +28,13 @@
  {% endblock %}
 
  {% block body %}
-
+     <p>Bienvenido {{ app.user.username }}</p>
+     <a href="{{path('jamn_logout')}}">Cerrar sesión </a>
      <h1>Implementación de la lógica de control de la aplicación</h1>
+
+     {% if not is_granted('ROLE_PREMIUM') %}
+         <h2>PUBLICIDAD AQUÍ</h2>
+     {% endif %}
 
      {% for flashMessage in app.session.flashbag.get('mensaje') %}
          <div id="etiquetas" class="marco mensaje">

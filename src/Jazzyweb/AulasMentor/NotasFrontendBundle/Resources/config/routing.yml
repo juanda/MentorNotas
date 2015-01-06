@@ -92,3 +92,13 @@ jamn_evf:
 jamn_evf_form_usuario:
  pattern: /estudio_valyforms/form_usuario
  defaults: { _controller: JAMNotasFrontendBundle:EstudioValidacionYFormulario:formUsuario }
+
+jamn_login:
+     pattern: /login
+     defaults: { _controller: JAMNotasFrontendBundle:Login:login }
+
+jamn_login_check:
+     pattern: /login_check
+
+jamn_logout:
+  pattern: /logout
