@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ace364db-b7bb-45db-a094-511a0e370e9b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Services/Registro.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Form/Type/RegistroType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Resources/views/Login/activar_success.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Resources/views/Login/email_registro.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Resources/views/Login/registro.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Resources/views/Login/registro_success.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Controller/LoginController.php" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Controller/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Entity/Usuario.php" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Entity/Usuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Jazzyweb/AulasMentor/NotasFrontendBundle/Resources/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ace364db-b7bb-45db-a094-511a0e370e9b" name="Default" comment="" />
     <ignored path="MentorNotas.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.8509934" vertical-offset="521" max-vertical-offset="1155">
-              <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+              <caret line="69" column="36" selection-start-line="68" selection-start-column="4" selection-end-line="69" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -1201,7 +1189,7 @@
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8509934" vertical-offset="521" max-vertical-offset="1155">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+          <caret line="69" column="36" selection-start-line="68" selection-start-column="4" selection-end-line="69" selection-end-column="36" />
           <folding />
         </state>
       </provider>
